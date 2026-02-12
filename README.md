@@ -1,2 +1,2 @@
 # Exercise
-kodit acamedy lesson notes
+kodit acamedy lessons notes
