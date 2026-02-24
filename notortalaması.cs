@@ -27,13 +27,12 @@ namespace subat24
             Console.Write("3. Not:");
             int not3 = Convert.ToInt32(Console.ReadLine());
 
+            double ortalama = (not1 + not2 + not3) / 3d;
             if (not1 < 0 || not1 > 100 || not2 < 0 || not2 > 100 || not3 < 0 || not3 > 100)
             {
             Console.WriteLine("Lütfen 0 ile 100 arasında bir not giriniz.");
-            };
-            
-            double ortalama = (not1 + not2 + not3) / 3d;
-            if (ortalama >= 90)
+            }
+            else if (ortalama >= 90)
             {
                  Console.WriteLine($"Ortalamanız: {ortalama} Harf Notunuz: AA");               
             }
@@ -67,5 +66,6 @@ namespace subat24
             }
     }
 }
+
 
 
