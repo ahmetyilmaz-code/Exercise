@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,43 +27,43 @@ namespace subat24
             string islemTuru = Console.ReadLine();
             Console.Write($"{sayi1} {islemTuru} {sayi2} = ");
 
-            ;
-            if (islemTuru == "+")
-            {
-                Console.Write(sayi1 + sayi2);
-            }
-            else if (islemTuru == "-")
-            {
-                Console.Write(sayi1 - sayi2);
-            }
-            else if (islemTuru == "*")
-            {
-                Console.Write(sayi1 * sayi2);
-            }
-            else if (islemTuru == "/")
-            {
-                if (sayi2 != 0)
-                {
-                    Console.Write(sayi1 / sayi2);
-                }
-                else
-                {
-                    Console.WriteLine("Sıfıra bölme hatası!");
-                }
-            }
-            else
+            
+            if (islemTuru != "+" || islemTuru != "-" || islemTuru != "*" || islemTuru != "/")
             {
                 Console.WriteLine("Geçersiz işlem türü");
             }
+            else
+            {
 
+                if (islemTuru == "+")
+                {
+                    Console.Write(sayi1 + sayi2);
+                }
+                else if (islemTuru == "-")
+                {
+                    Console.Write(sayi1 - sayi2);
+                }
+                else if (islemTuru == "*")
+                {
+                    Console.Write(sayi1 * sayi2);
+                }
+                else if (islemTuru == "/")
+                {
+                    if (sayi2 != 0)
+                    {
+                        Console.Write(sayi1 / sayi2);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sıfıra bölme hatası!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Geçersiz işlem türü");
+                }
 
-
-
-
-
-
-
-
+            }
         }
     }
 
