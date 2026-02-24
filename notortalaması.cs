@@ -26,19 +26,19 @@ namespace subat24
             int not3 = Convert.ToInt32(Console.ReadLine());
 
             double ortalama = (not1 + not2 + not3) / 3d;
-            if (ortalama > 90)
+            if (ortalama >= 90)
             {
                  Console.WriteLine($"Ortalamanız: {ortalama} Harf Notunuz: AA");               
             }
-            else if (ortalama > 80)
+            else if (ortalama >= 80)
             {
                 Console.WriteLine($"Ortalamanız: {ortalama} Harf Notunuz: BA");
             }
-            else if (ortalama > 70)
+            else if (ortalama >= 70)
             {
                 Console.WriteLine($"Ortalamanız: {ortalama} Harf Notunuz: BB");
             }
-            else if (ortalama > 50)
+            else if (ortalama >= 50)
             {
                 Console.WriteLine($"Ortalamanız: {ortalama} Harf Notunuz: CC");
             }
@@ -60,3 +60,4 @@ namespace subat24
             }
     }
 }
+
