@@ -1,0 +1,104 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _31_Mart_010
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Yazı tura oyunu 2
+            // Nasıl Oynanır?
+            // Önce kullanıcıya Yazı (Y) mı Tura (T) mı diye sorulur
+            // Sonra rastgele bir şekilde Yazı veya Tura şeçilir.
+            // Gelen sonuç ile kullanıcının girdiği sonucu kıyaslayarak 
+            // Kazandın veya Kaybettin yazar.
+            // Ek: 
+            // Kullanıcının 3 canı olsun
+            // Her 3 üst üste 3 bilişte bir can hakkı daha kazansın max can hakkı hep 3 kalacak
+            // Her doğru bilişte 10 puan kazanır her üst üste 3 doğru bilişte 30 puan alır.
+            // Can 0 olunca oyun biter.
+
+            int can = 3;
+            int i = 0, j = 0, k = 0; //i kazanma sayısı, j kaybetme sayısı
+            int puan = 0, ekpuan = 20; // üst üste 3 doğru bilişte puan+ekpuan //10+20=30
+            char cevap;
+            while (true)
+            {
+                Console.Clear(); // Tüm Yazıları Siler.
+                Console.WriteLine($"Mevcut Can: {can}\nMevcut Skor: {puan}\nDoğru Seriniz: {i}");
+                while (true)
+                {
+                    Console.Write("Yazı (Y) mı? Tura (T) mı? :");
+                    cevap = Console.ReadKey().KeyChar;
+                    Console.WriteLine();
+                    if (cevap == 'Y' || cevap == 'y' || cevap == 'T' || cevap == 't')
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Sadece Y veya T tuşlarına basınız...");
+                }
+                if (cevap == 'Y' || cevap == 'y')
+                {
+                    cevap = 'Y';
+                }
+                else
+                {
+                    cevap = 'T';
+                }
+
+                Random rnd = new Random();
+                int sayi = rnd.Next();
+                char bilgisayCevap = sayi % 2 == 0 ? 'Y' : 'T';
+                Console.WriteLine($"Yazı tura sonuç: {(bilgisayCevap == 'Y' ? "Yazı" : "Tura")}");
+
+                if (cevap == bilgisayCevap)
+                {
+                    Console.WriteLine("Kazandınız...");
+                    i++; // kazanma sayısını tutar
+                    puan += 10;
+                    Console.WriteLine("+10 Puan kazandınız");
+                    // Console.WriteLine($"Total puanınız : {puan}");
+                    //Console.WriteLine($"Kalan canınız : {can}");
+                    // Console.WriteLine($"Mevcut seriniz : {i}");
+                }
+                else
+                {
+                    Console.WriteLine("Kaybettiniz...");
+                    j++; // kaybetme sayısını tutar                    
+                    i = k; //kaybedince kazanma serisi 0 olur
+                    can--; // can bir azalır her kaybetmede
+                    Console.WriteLine($"Kalan canınız :{can}");
+                }
+
+                if (i == 3) //3 kez üst üste doğruysa 
+                {
+                    can++;
+                    if (can >= 3)
+                    {
+                        can = 3;
+                        Console.WriteLine($"Mevcut canınız : {can}");
+                    }
+                    Console.WriteLine($"Doğru Seriniz: {i} oldu +30 puan kazandınız.");
+                    puan += ekpuan;
+                }
+
+                if (can == 0)
+                {
+                    Console.WriteLine("Canınız Kalmadı");
+                    break;
+
+                }
+                Console.WriteLine("Devam etmek için bir tuşa basınız..");
+                Console.ReadKey();
+            }
+            Console.WriteLine($"---------\nOyun Bitti \nToplam Puan:{puan}");
+            Console.ReadKey();
+
+
+        }
+    }
+}

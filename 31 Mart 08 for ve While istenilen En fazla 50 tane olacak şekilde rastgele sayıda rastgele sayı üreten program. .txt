@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _31_Mart_08
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // 1-) En fazla 50 tane olacak şekilde rastgele sayıda rastgele sayı üreten program.
+            // 2-) 7ye tam bölünen sayıyı bulanakadar rasgele sayı üreten program
+            int sayi;
+            Random RastgeleSayi = new Random();
+
+            // 1-) 
+            Console.WriteLine("1-)");
+            int adet = RastgeleSayi.Next(1, 51);
+            Console.WriteLine($"{adet} sayı rastgele yazdırılıyor :");
+            for (int j = 1; j <= adet; j++)
+            {
+                sayi = RastgeleSayi.Next();
+                Console.WriteLine($"{j}. Rastgele sayı : {sayi}");
+            }
+
+            // 2-)
+            Console.WriteLine("2-)");
+            int i = 1;
+            sayi = 1;
+            while (sayi % 7 != 0)
+            {
+                sayi = RastgeleSayi.Next();
+                Console.WriteLine($"{i}. sayi :{sayi}");
+                i++;
+            }
+            Console.WriteLine($"{i}. sayı olan {sayi} 7ye tam bölünür.");
+
+
+        }
+    }
+}

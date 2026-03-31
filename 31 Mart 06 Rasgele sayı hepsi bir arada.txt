@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _31_Mart_02
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            int s1, s2, s3;
+            double s4;
+            Random RastgeleSayi = new Random();
+
+            s1 = RastgeleSayi.Next(); // s1 0 ile max değer arasında
+            s2 = RastgeleSayi.Next(50); // s2 0-50 arasında
+            s3 = RastgeleSayi.Next(10, 20); // s3 10-20 arasında
+            s4 = RastgeleSayi.NextDouble(); // s4 0-1 arasında
+
+            Console.WriteLine(s1);
+            Console.WriteLine(s2);
+            Console.WriteLine(s3);
+            Console.WriteLine(s4);
+            Console.WriteLine(s1 + s4);
+            Console.WriteLine(s3 + s4);
+
+
+
+
+        }
+    }
+}

@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _31_Mart_01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // kullanıcı negatif değer girene kadar sayıları toplayan program. goto - label ile
+            int toplam = 0;
+            int i = 1;
+        index:
+            Console.Write($"{i}.sayıyı giriniz:");
+            i++;
+            int sayi = Convert.ToInt32(Console.ReadLine());
+            if (sayi > 0)
+            {
+                toplam += sayi;
+                goto index;
+            }
+            Console.WriteLine($"Toplam ={toplam}");
+
+        }
+    }
+}

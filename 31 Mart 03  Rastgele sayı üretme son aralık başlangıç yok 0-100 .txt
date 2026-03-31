@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _31_Mart_02
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Rastgele sayı üretme 100e kadar 0-99 arası
+            // Rastgele bir sayı üretmek için Random sınıfından faydalanıyoruz.
+            // Bu bir kalıptır. Burada RastgeleSayi yazan yere istenilen isim verilebilir aynı değişkenlerdeki gibi
+
+            Random RastgeleSayi = new Random();
+            // random sınıf int sayılar üretir genel olarak.
+
+            int rastgele = RastgeleSayi.Next(100);
+            // burada 0 ile 100e kadar ama 100 dahil olmayan sayılar üretir, min = 1 , max = 99
+            Console.WriteLine(rastgele);
+
+
+
+        }
+    }
+}

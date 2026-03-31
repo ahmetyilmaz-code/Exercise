@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _31_Mart_09
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Yazı Tura Oyunu
+            // Nasıl Oynanır ?
+            // önce kullanıcıya Yazı(y)mı Tura(T)mı diye sorulur.
+            // sonra rastgele bir şekilde yazı veya tura seçilir.
+            // gelen sonuç ile kullanıcının girdiği sonucu kıyaslayarak
+            // kazandın veya kaybettin yazar.
+
+            Console.WriteLine("Yazı Tura Oyununa Hoşgeldiniz...");
+            Console.WriteLine("Yazı için (Y), Tura için (T) seçiniz ?");
+            char seçim = Console.ReadKey().KeyChar;
+
+            Random rnd = new Random();
+            int yazıtura = rnd.Next(1,3); // 1 yazı demek, 2 tura demek
+            Console.WriteLine(yazıtura);
+            if (seçim == 'y' || seçim == 'Y')
+            {
+                if (yazıtura == 1)
+                {
+                    Console.WriteLine("Sen Yazı Ben Yazı Kazandınız...");
+                }
+                else
+                {
+                    Console.WriteLine("Sen Yazı Ben Tura Kaybettiniz...");
+                }
+            }
+            else if (seçim == 'T' || seçim == 't')
+            {
+                if (yazıtura == 2)
+                {
+                    Console.WriteLine("Sen Tura Ben Tura Kazandınız...");
+                }
+                else
+                {
+                    Console.WriteLine("Sen Tura Ben Yazı Kaybettiniz...");
+                }
+            }
+            else
+            {
+                Console.WriteLine("ya yazı seçiniz yada tura başka bişi değil.");
+            }
+
+        }
+    }
+}

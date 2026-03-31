@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _31_Mart_02
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Rastgele sayı üretme, ondalıklı Min=0.0 Max=0.9999 1 dahil değil
+
+
+            Random RastgeleSayi = new Random();
+            // random sınıf int sayılar üretir genel olarak.
+
+            double rastgele = RastgeleSayi.NextDouble();
+            // Burada 0 ile 1 arasında ondalıklı sayı üretir 0 dahil ve 1 dahil değil
+            Console.WriteLine(rastgele);
+
+
+
+        }
+    }
+}
