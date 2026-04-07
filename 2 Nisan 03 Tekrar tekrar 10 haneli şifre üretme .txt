@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _02_Nisan_03
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // kullanıcıya Tekrar (T) tuşuna bastığı sürece rastgele karakterleden oluşan 10 basamaklı şifre öneren program.
+            // Şifre: asdRfv!'15
+            // Yeni şifre için T tuşuna basın...
+            // başka tuşta şifre kabul edildi program kapatılıyor...
+
+
+            char cevap = 'T';
+            while (cevap == 'T' || cevap == 't')
+            {
+                string sifre = "";
+                Random rnd = new Random();
+                for (int i = 1; i <= 10; i++)
+                {
+                    int sayi = rnd.Next(33, 127);
+                    sifre += (char)sayi;
+                    //char _sayi = Convert.ToChar(sayi);
+                    //sifre += _sayi; 
+
+                    // karakterin Ascıı deki sayı değerini görme
+                    // char sifre = '!';
+                    // int _sifre = Convert.ToInt32(sifre); //33                    
+                    // Console.WriteLine(_sifre);
+                }
+                Console.WriteLine();
+                Console.WriteLine($"Şifre : {sifre}");
+                Console.Write("Tekrar şifre için (T):");
+                cevap = Console.ReadKey().KeyChar;
+            }
+            Console.WriteLine("\nEn son yazılan şifre onaylanmıştır program kapatılıyorç...");
+            Console.ReadKey();
+        }
+    }
+}

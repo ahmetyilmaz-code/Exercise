@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _02_Nisan_05
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // kullanıcıya Tekrar (T) tuşuna bastığı sürece rastgele karakterleden oluşan 10 basamaklı şifre öneren program.
+            // Şifre: asdRfv!'15
+            // Yeni şifre için T tuşuna basın...
+            // başka tuşta şifre kabul edildi program kapatılıyor...
+
+            // 4 tanesi büyük harf --> 65-90 (1)
+            // 3 tanesi küçük harf --> 97-122 (2)
+            // 2 tanesi rakam --> 48-57 (2)
+            // 1 tanesi noktalama işareti olsun karakterler --> !  #  $  %  &  +  -  *  /  .  ;  :  ? (4)
+            //                                              --> 33 35 36 37 38 43 45 42 47 46 58 59 63
+            //                                              --> 33 35-38 42,43 45-47 58,59 63
+
+
+            char cevap = 'T';
+            while (cevap == 'T' || cevap == 't')
+            {
+                string sifre = "";
+                Random rnd = new Random();
+                int i = 0, j = 0, k = 0, l = 0;
+                int sayi=0;
+                for (int a = 0; a < 10; a++)
+                {
+                    sayi = rnd.Next(33, 127);
+
+                    if (sayi > 64 && sayi < 91)
+                    {
+                        sayi = rnd.Next(65, 91); //büyük harf
+                        i++;
+                    }
+                    else if (sayi > 96 && sayi < 123)
+                    {
+                        sayi = rnd.Next(97, 123); //küçük harflerin ascıı si
+                        j++;
+                    }
+                    else if (sayi > 47 && sayi < 57)
+                    {
+                        sayi = rnd.Next(48, 57); //rakamların ascıı si
+                        k++;
+                    }
+                    else
+                    {
+                        sayi = rnd.Next(33, 127);
+                        l++;
+
+                    }
+                    if (i > 4)
+                    {
+                        continue;
+                    }
+                    else if (j > 3)
+                    {
+                        continue;
+
+                    }
+                    else if (k > 3)
+                    {
+                        continue;
+                    }
+                    sifre += (char)sayi;
+                }
+                Console.WriteLine();
+                Console.WriteLine($"Şifre : {sifre}");
+                Console.Write("Tekrar şifre için (T):");
+                cevap = Console.ReadKey().KeyChar;
+            }
+            Console.WriteLine("\nEn son yazılan şifre onaylanmıştır program kapatılıyor...");
+            Console.ReadKey();
+        }
+    }
+}

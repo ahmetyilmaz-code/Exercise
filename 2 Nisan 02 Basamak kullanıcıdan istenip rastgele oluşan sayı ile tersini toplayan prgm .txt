@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _02_Nisan_02
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // kullanıcından rastgele oluşturulacak olan sayının basamak adetini alarak
+            // rastgele oluşan sayının kendisi ile tersinin toplamını bulan program
+
+            // Kaç basamaklı sayı : 3
+            // Rastgele oluşan sayı : 123
+            // 123 + 321= 444
+
+            Random rnd = new Random();
+
+            Console.Write("Kaç basamaklı sayı : ");
+            int basamak = Convert.ToInt32(Console.ReadLine());
+            int max = 1, min = 1;
+            for (int i = 0; i < basamak - 1; i++)
+            {
+                min *= 10;
+            }
+            max = min * 10;
+
+            int sayi = rnd.Next(min, max);
+            int gecicisayi = sayi;
+            string terssayitxt = "";
+
+            while (gecicisayi != 0)
+            {
+                terssayitxt += gecicisayi % 10;
+                gecicisayi /= 10;
+            }
+            
+            int terssayi = Convert.ToInt32(terssayitxt);
+            Console.WriteLine($"Rastgele oluşan sayı : {sayi}");
+            Console.WriteLine($"{sayi} + {terssayi} = {(sayi + terssayi)}");
+        }
+    }
+}

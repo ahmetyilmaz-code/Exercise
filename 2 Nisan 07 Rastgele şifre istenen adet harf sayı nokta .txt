@@ -1,0 +1,148 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _02_Nisan_07
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            // EVDE YAP:adetleri kullanıcı girsin ve oluşacak şifrenin toplam adeti 10 ve üzeri olacak şekilde ayarlansın
+            // buyukharf + kucukharf + rakam + noktalama en az 10 olcak
+
+            // kullanıcıya Tekrar (T) tuşuna bastığı sürece rastgele karakterleden oluşan 10 basamaklı şifre öneren program.
+            // Şifre: asdRfv!'15
+            // Yeni şifre için T tuşuna basın...
+            // başka tuşta şifre kabul edildi program kapatılıyor...
+
+            // 4 tanesi büyük harf --> 65-90 (1)
+            // 3 tanesi küçük harf --> 97-122 (2)
+            // 2 tanesi rakam --> 48-57 (2)
+            // 1 tanesi noktalama işareti olsun karakterler --> !  #  $  %  &  +  -  *  /  .  ;  :  ? 33-64 (4)
+            //                                              --> 33 35 36 37 38 43 45 42 47 46 58 59 63
+            //                                              --> 33 35-38 42,43 45-47 58,59 63
+
+            int toplambasamak = 0;
+            int _buyukharf = 0, _kucukharf = 0, _noktalama = 0, _rakam = 0;
+            while (toplambasamak < 10)
+            {
+                Console.Write("Şifrede kaç adet BÜYÜK HARF olsun: ");
+                _buyukharf = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Şifrede kaç adet KÜÇÜK HARF olsun: ");
+                _kucukharf = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Şifrede kaç adet RAKAM olsun: ");
+                _rakam = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Şifrede kaç adet NOKTALAMA olsun: ");
+                _noktalama = Convert.ToInt32(Console.ReadLine());
+
+                toplambasamak = _buyukharf + _kucukharf + _noktalama + _rakam;
+                if (toplambasamak < 10)
+                {
+                    Console.WriteLine("\nDeğerlerin toplamları 10dan büyük olmalı");
+                }
+
+            }
+            Random rnd = new Random();
+            char cevap = 'T';
+            string sifre = "";
+            int buyukharf = 0, kucukharf = 0, rakam = 0, noktalama = 0;
+            while (cevap == 'T' || cevap == 't')
+            {
+                sifre = "";
+                int sayi = 0;
+                
+                while ((buyukharf + kucukharf + rakam + noktalama) < toplambasamak)
+                {
+                    int a = 0;
+                    int karakterturu = rnd.Next(1, 5);
+                    switch (karakterturu)
+                    {
+                        case 1:
+                            if (buyukharf == _buyukharf)
+                            {
+                                continue;
+                            }
+                            sayi = rnd.Next(65, 91);
+                            sifre += (char)sayi;
+                            buyukharf++;                            
+                            break;
+
+                        case 2:
+                            if (kucukharf == _kucukharf)
+                            {
+                                continue;
+                            }
+                            sayi = rnd.Next(97, 123);
+                            sifre += (char)sayi;
+                            kucukharf++;                            
+                            break;
+
+                        case 3:
+                            if (rakam == _rakam)
+                            {
+                                continue;
+                            }
+                            sayi = rnd.Next(48, 58);
+                            sifre += (char)sayi;
+                            rakam++;                            
+                            break;
+
+                        default:
+                            if (noktalama == _noktalama)
+                            {
+                                continue;
+                            }
+
+
+                            while (a != 1)
+                            {
+                                //!  #  $  %  &  +  -  *  /  .  ;  :  ?
+                                sayi = rnd.Next(33, 64);
+                                switch (sayi)
+                                {
+                                    case '!':
+                                    case '#':
+                                    case '$':
+                                    case '%':
+                                    case '&':
+                                    case '+':
+                                    case '-':
+                                    case '*':
+                                    case '/':
+                                    case '.':
+                                    case ':':
+                                    case ';':
+                                    case '?':
+                                        sifre += (char)sayi;
+                                        noktalama++;
+                                        a = 1;                                       
+                                        break;
+                                }
+
+                            }
+
+                            break;
+                    }
+                }
+                buyukharf = 0;
+                kucukharf = 0;
+                rakam = 0;
+                noktalama = 0;
+                Console.WriteLine();
+                Console.WriteLine($"Son Şifre : {sifre}");
+                Console.Write("Tekrar şifre için (T):");
+                cevap = Console.ReadKey().KeyChar;
+            }
+            Console.WriteLine("\nEn son yazılan şifre onaylanmıştır program kapatılıyor...");
+            Console.WriteLine($"Seçilen Şifre : {sifre}");
+            Console.ReadKey();
+        }
+    }
+}
