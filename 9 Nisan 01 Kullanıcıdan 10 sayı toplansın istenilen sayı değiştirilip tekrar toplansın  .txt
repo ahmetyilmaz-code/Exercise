@@ -1,0 +1,80 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _9_Nisan_01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Kullanıcıdan 10 adet sayı alarak bu sayıları toplayan program
+            // kullanıcı değerleri girdikten sonra istediği sıradaki sayının değerini
+            // değiştirerek toplam sonucu etkileyebilir.
+            // 1 10
+            // 2 4
+            // 3 40
+            // 4 20
+            //...
+            //...
+            // 10 1
+            // Toplam: 76
+
+            //Değiştirmek istedin sayının satır numarası: 2
+            //2. sayı :10
+            //ekranı silip
+            // 1 10
+            // 2 10
+            // 3 40
+            // 4 20
+            //...
+            //...
+            // 10 1
+            // Toplam: 82
+
+            int[] sayılar = new int[10];
+            int toplam = 0;
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write($"{i + 1}. sayı: ");
+                sayılar[i] = Convert.ToInt32(Console.ReadLine());
+                toplam += sayılar[i];
+            }  
+
+            Console.WriteLine($"Toplam: {toplam}");
+            Console.Write("Değiştirmek istediğnizi sayı varmı(E/H): ");
+            char cevap = Console.ReadKey().KeyChar;
+
+            while (cevap == 'E' || cevap == 'e')
+            {                
+                Console.Write("\nKaçıncı sayıyı değiştirmek istersiniz: ");
+                int degisecekSayı = Convert.ToInt32(Console.ReadLine());   
+                if (degisecekSayı < 1 || degisecekSayı > 10)
+                {
+                    Console.Write("Lütfen 1 ile 10 arasında bir sayı giriniz.");
+                    continue;
+                }
+                Console.Write("Bu Sayının yeni değeri kaç olsun: ");
+                int yeniDeger = Convert.ToInt32(Console.ReadLine());
+
+                toplam -= sayılar[degisecekSayı - 1];
+                sayılar[degisecekSayı - 1] = yeniDeger;                             
+                toplam += yeniDeger;
+                
+                Console.Write("Başka sayı değiştirmek misiniz? (E/H): ");
+                cevap = Console.ReadKey().KeyChar;
+            }
+
+            Console.Clear();
+            Console.WriteLine("Program Sonlandırıldı Son değişiklikler Yükleniyor");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write($"{i + 1}. sayı: {sayılar[i]}\n");
+            }
+            Console.WriteLine($"Toplam: {toplam}");
+        }
+    }
+}

@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _9_Nisan_02
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Length dizinin eleman sayısını verir.
+            // Kullanım şekli dizi.Length şeklindedir.
+            int[] sayılar = new int[10];
+            int elemanSayısı = sayılar.Length; // Length değeri 10'dur çünkü dizinin boyutu 10'dur.
+            Console.WriteLine($"Sayilar dizisinin eleman sayısı: {elemanSayısı}");
+
+            //foreach döngüsü, bir koleksiyonun (dizi, liste vb.)
+            //her bir elemanını tek tek işlemek için kullanılır.
+            //diz içindeki elemanları tek tek dönerek elemanın değeri tanımlanan değişkene atar.
+            sayılar = new int[] { 1, 2, 3, 4, 5 };
+            foreach (var item in sayılar) // var int gibi bir değişkendir.
+            {   
+                Console.WriteLine(item); 
+            }
+            // ama bu foreach döngüsünün bir kusuru var.
+            // burada tanımlanan değişken sadece okunabilir bir değişkendir.
+            // Yani item değişkenine yeni bir değer atayarak dizinin elemanlarını değiştiremezsiniz.
+
+
+
+        }
+    }
+}
