@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _02_Nisan_01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Diziler birden fazla aynı tipteki değişkenin bir arada bulunduğu yapılardır.
+            //int s1 =10;
+            //int s2 =20;
+            //int s3 =30;
+
+            // Dizi Yazımı: olusturulacak dizinin türü, köşeli parantezler ve dizinin adı yazılır.
+            // tip[] diziAdı = new tip[diziElemanSayısı]; // Yazım Şekli  
+            int[] sayiDizisi = new int[3]; // 3 elemanlı int tipte bir tamsayı dizisi tanımlandı.
+            sayiDizisi[0] = 10; // Dizinin ilk elemanına 10 değeri atandı. // 1. eleman 0. index'tir.
+            sayiDizisi[1] = 20;
+            sayiDizisi[2] = 30;
+            //sayiDizisi[3] = 50; bu komut çalışma dizi 3 elemanlı bu 4. eleman
+            Console.WriteLine(sayiDizisi[0]); // Dizinin ilk elemanını ekrana yazdırır.
+            Console.WriteLine(sayiDizisi[1]);
+            Console.WriteLine(sayiDizisi[2]);
+
+
+            string[] yazılar; //elemanı yok null dizi
+            yazılar = new string[3]; // daha önceki dizinin içine 3 eleman atandı.
+
+            char[] karakterler = new char[] {'1','2','3','4','5'}; // karakterler dizisi 5 elemanlıdır. 
+
+            // tanımlanmayan dizilerde sayısalsa 0 , metinselse "" değeri olur.
+
+            //int[] sayılar={ 1, 2, 3, 4} olursa olur
+            int[] sayılar;
+            //sayılar = { 1, 2, 3, 4}; //buna kızar
+            sayılar = new int[] { 1, 2, 3, 4 }; // bu şekilde tanımlanırsa olur.
+
+            
+            Console.ReadKey();
+        }
+    }
+}

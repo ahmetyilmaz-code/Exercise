@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _02_Nisan_01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            /* 
+             *** ** *
+             * *** **
+              *******
+             ***** **             
+             */
+            char cevap = 'T';
+            while (cevap == 'T' || cevap == 't')
+            {
+                Console.Clear();
+                Random rnd = new Random();
+                int satir = rnd.Next(5, 21);
+                for (int i = 0; i < satir; i++)
+                {
+                    for (int j = 0; j < satir; j++)
+                    {
+                        Console.Write(rnd.Next() % 2 == 0 ? " " : "**");
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine("Tekrar çizmek ister misiniz? (T/F)");
+                cevap = Console.ReadKey().KeyChar;
+            }
+
+
+
+
+            Console.ReadKey();
+        }
+    }
+}

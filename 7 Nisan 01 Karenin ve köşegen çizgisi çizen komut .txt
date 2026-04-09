@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _02_Nisan_01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            /* 
+             *** ** *
+             * *** **
+              *******
+             ***** **             
+             */
+            Random rnd = new Random();
+            // Console.Write("Kaç satır-sutun olsun? ");
+            int satir = rnd.Next(5, 21);
+
+            for (int i = 0; i < satir; i++)
+            {
+                for (int j = 0; j < satir; j++)
+                {
+                    if (i == 0 || i == satir - 1 || j == 0 || j == satir - 1 || i == j || i + j == satir - 1)
+                    {
+                        Console.Write("* ");
+                    }
+                    else
+                    {
+                        Console.Write("  ");
+                    }
+                }
+                Console.WriteLine();
+            }
+
+
+
+
+            Console.ReadKey();
+        }
+    }
+}

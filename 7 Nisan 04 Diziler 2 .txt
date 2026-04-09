@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _02_Nisan_01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // aynı diziyi yeni dizi olarak tanıtınca eski veriler kaybolur.
+            int[] sayılar = new int[3];
+            sayılar[0] = 10;
+            sayılar[1] = 20;
+            sayılar[2] = 30;
+            Console.WriteLine(sayılar[0]);
+            Console.WriteLine(sayılar[1]);
+            Console.WriteLine(sayılar[2]);
+            Console.WriteLine("********************");
+            sayılar = new int[5];
+            Console.WriteLine(sayılar[0]);
+            Console.WriteLine(sayılar[1]);
+            Console.WriteLine(sayılar[2]);
+
+            // int s1,s2=10,s3;
+            int[] dizi1 = new int[3], dizi2 = new int[] { 1, 2, 3 }, dizi3;
+
+            Console.ReadKey();
+        }
+    }
+}
