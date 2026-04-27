@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.NetworkInformation;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp14Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // iki boyutlu diziler
+            int[,] sayılar = new int[2, 2];
+            sayılar[0, 0] = 10;
+            sayılar[0, 1] = 20;
+            sayılar[1, 0] = 30;
+            sayılar[1, 1] = 40;
+            Console.WriteLine(sayılar[0, 0]);
+
+            // üç boyutlu diziler
+            int[,,] sayılar3D = new int[2, 2, 2];
+            sayılar3D[0, 0, 0] = 1;
+            sayılar3D[0, 0, 1] = 2;
+            sayılar3D[0, 1, 0] = 3;
+            sayılar3D[0, 1, 1] = 4;
+            sayılar3D[1, 0, 0] = 5;
+            sayılar3D[1, 0, 1] = 6;
+            sayılar3D[1, 1, 0] = 7;
+            sayılar3D[1, 1, 1] = 8;
+            Console.WriteLine(sayılar3D[0, 0, 0]);
+        }
+    }
+}

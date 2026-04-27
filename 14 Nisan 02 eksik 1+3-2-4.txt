@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.NetworkInformation;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp14Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Kullanıcıdan istediği adette ama çift olmak kaydıyla sayı alsın
+            // (1.sayı + 3.sayı) - (2.sayı + 4.sayı) - (5.sayı + 7.sayı) - (6.sayı + 8.sayı) - .....
+
+
+            Console.Write("Çift sayı giriniz:  ");
+            int adet = Convert.ToInt32(Console.ReadLine());
+            while (adet % 2 != 0)
+            {
+                Console.WriteLine("Sadece çift sayı giriniz");
+                Console.Write("Sayı :");
+                adet = Convert.ToInt32(Console.ReadLine());
+            }
+
+            int[] sayılar = new int[adet];
+            for (int i = 0; i < sayılar.Length; i++)
+            {
+                Console.Write($"{i + 1}.Sayı : ");
+                sayılar[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            int sonuc = 0;
+            
+
+
+        }
+    }
+}

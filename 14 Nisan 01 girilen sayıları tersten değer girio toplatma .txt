@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp14Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Kullanıcıdan istediği adet sayı alarak toplamını bulan program
+            // 1. 0
+            // 2. 0
+            // 3. 0
+            // 4. 0
+            //
+            // 10. 0
+            // 10. Sayı: 100
+            // ekran silinecek
+
+            // 1. 0
+            // 2. 0
+            // 3. 0
+            // 4. 0
+            //
+            //
+            // 9. 50            
+            // 10. Sayı: 100
+
+            Console.Write("Kaç adet sayı gireceksiniz: ");
+            int sayi = Convert.ToInt32(Console.ReadLine());
+            int[] sayılar = new int[sayi];
+            int gecicisayı = sayi;
+            int toplam = 0;
+
+            /*
+            while (gecicisayı > 0)
+            {
+                for (int i = 0; i < sayi; i++)
+                {
+                    Console.WriteLine($"{i + 1}. Sayı: {sayılar[i]}");
+                }
+
+                Console.Write($"{gecicisayı}. Sayı: ");
+                sayılar[gecicisayı - 1] = Convert.ToInt32(Console.ReadLine());
+                gecicisayı--;
+                Console.Clear();
+            }
+            */            
+
+            for (int k = gecicisayı; k > 0; k--)
+            {                
+                for (int i = 0; i < sayılar.Length; i++)
+                {
+                    Console.WriteLine($"{i + 1}. Sayı: {sayılar[i]}");                    
+                }
+                Console.Write($"{k}. Sayı: ");
+                int input = Convert.ToInt32(Console.ReadLine());
+                sayılar[k - 1] = input;
+                toplam += sayılar[k - 1];
+                Console.Clear();
+            }
+            for (int i = 0; i < sayılar.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. Sayı: {sayılar[i]}");
+                
+            }
+            Console.WriteLine($"Toplam: {toplam}");
+
+
+
+
+
+
+        }
+    }
+}

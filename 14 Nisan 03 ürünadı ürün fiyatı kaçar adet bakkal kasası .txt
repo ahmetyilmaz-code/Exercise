@@ -1,0 +1,102 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.NetworkInformation;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp14Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Önce kullanıcıdan kaç adet ürün olacağını alalım.
+            // sonra ürün adlarını 
+            // sonra ürün fiyatlarını alalım.
+            // Basit bakkal kasası
+
+            // Toplam gelen para: 0
+            // 1. Un = 10
+            // 2. su = 2
+            // 3. Tuz = 3
+            // 4. Şeker = 20
+
+            // müşteri gelince bir tuşa bas...
+            // Hangi ürün:2
+            // Kaçtane: 3
+            // Toplam gelen para: 6
+            // Bitirmek için B tuşuna ürün eklemek için E tuşuna basınız. //E
+
+            // Hangi ürün: 4
+            // Kaçtane: 2 
+            // Toplam gelen para: 46
+            // Bitirmek için B tuşuna ürün eklemek için E tuşuna basınız. //B
+            // ekran silinip
+            // Toplam gelen para: 0
+            // 1. Un = 10
+            // 2. su = 2
+            // 3. Tuz = 3
+            // 4. Şeker = 20
+            // müşteri gelince bir tuşa bas...
+
+
+            Console.Write("Kaç adet ürün satılacak: ");
+            int urunAdet = Convert.ToInt32(Console.ReadLine());
+            string[] urunAdlari = new string[urunAdet];
+            double[] urunFiyatlari = new double[urunAdet];
+            for (int i = 0; i < urunAdet; i++)
+            {
+                Console.Write($"{i + 1}. ürünün adını giriniz:");
+                urunAdlari[i] = Console.ReadLine();
+                Console.Write($"{urunAdlari[i]} ürününün fiyatını giriniz:");
+                urunFiyatlari[i] = Convert.ToDouble(Console.ReadLine());
+            }
+            Console.Write("Devam etmek için bir tuşa basınız");
+            Console.ReadKey();
+            Console.Clear();
+
+            double toplam = 0;
+            while (true)
+            {
+                Console.WriteLine($"Toplam gelen para: {toplam}");
+                for (int i = 0; i < urunAdet; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {urunAdlari[i]} = {urunFiyatlari[i]}");
+                }
+
+                Console.WriteLine("Müşteri geldiğinde bir tuşa basınız...");
+                char secim = 'e';
+
+                while (secim == 'e' || secim == 'E')
+                {
+                    Console.ReadKey();
+                    Console.Write("Hangi ürün: ");
+                    int secilenUrun = Convert.ToInt32(Console.ReadLine());
+                    while (secilenUrun < 1 || secilenUrun > urunAdet)
+                    {
+                        Console.WriteLine($"seçilen değer en az 1 en çok {urunAdet} kadar olmalıdr.");
+                        Console.Write("Hangi ürün: ");
+                        secilenUrun = Convert.ToInt32(Console.ReadLine());
+                    }
+                    secilenUrun--;
+                    Console.Write("Kaç tane: ");
+                    int secilenAdet = Convert.ToInt32(Console.ReadLine());
+                    toplam += urunFiyatlari[secilenUrun] * secilenAdet;
+                    Console.WriteLine($"Toplam gelen para: {toplam}");
+
+                    Console.WriteLine("Bitirmek için B tuşuna, ürün eklemek için E tuşuna basınız.");
+                    secim = Console.ReadKey().KeyChar;
+                    if (secim == 'B' || secim == 'b')
+                    {
+                        Console.Clear();
+                        break;
+                    }
+                }
+                Console.Clear();
+            }
+
+
+        }
+    }
+}
