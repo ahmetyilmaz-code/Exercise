@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp16Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string [] names = { "Ahmet", "Veli", "Enes", "Fatma" };
+            foreach (var item in names)
+            {
+                Console.WriteLine($"=> {item}");
+            }
+            Console.WriteLine("Temizledikten sonra");
+            Array.Clear(names, 0, names.Length); // 0 dan başlayarak names dizisinin uzunluğu kadar elemanı temizle
+            foreach (var item in names)
+            {
+                Console.WriteLine($"=> {item}");
+            }
+        }
+    }
+}

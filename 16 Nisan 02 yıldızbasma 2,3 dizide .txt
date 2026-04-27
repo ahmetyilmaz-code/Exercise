@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp16Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //***
+            //***
+            //*** foreach ile
+            //string[,] satirlar = new string[3, 4]            
+            string[,] satirlar =
+            {
+                { "*", "*", "*", "\n" },
+                { "*", "*", "*", "\n" },
+                { "*", "*", "*", "\n" }
+            };
+
+            foreach (var i in satirlar)
+            {
+                Console.Write(i);
+            }
+        }
+    }
+}

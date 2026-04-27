@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp16Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Düzensiz diziler
+            int[][] duzensiz = new int[3][];
+            duzensiz[0] = new int[3];
+            duzensiz[1] = new int[2];
+            duzensiz[2] = new int[5];
+            duzensiz[0][2] = 10;
+            duzensiz[2][3] = 20;
+            Console.WriteLine(duzensiz[2][3]);
+
+
+
+        }
+    }
+}

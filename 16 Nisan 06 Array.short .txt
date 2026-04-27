@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp16Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int [] dizi = {3,2,5,6,7,1,2,90,23,45,67};
+            Console.WriteLine("Karışık Görünümlü Dizi");
+            foreach (var item in dizi)
+            {
+                Console.WriteLine(item);
+            } 
+            // karışık görünümlü diziyi sıralayalım
+            for (int i = 0; i < dizi.Length-1; i++)
+            {
+                for (int j = 0; j < dizi.Length-1-i; j++)
+                {
+                    if (dizi[j] > dizi[j + 1])
+                    {
+                        int temp = dizi[j];
+                        dizi[j] = dizi[j + 1];
+                        dizi[j + 1] = temp;
+                    }
+                }
+            }
+
+            // Sıralanmış diziyi ekrana yazdıralım
+            Array.Sort(dizi);
+            // metinsel ifadeleride sıralar A-Z sıralar
+            Console.WriteLine("Sıralanmış Dizi");
+            foreach (var item in dizi)
+            {
+                Console.WriteLine(item);
+            }
+
+
+        }
+    }
+}

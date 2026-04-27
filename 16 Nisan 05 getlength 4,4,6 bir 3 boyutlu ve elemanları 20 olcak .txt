@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp16Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //4,4,6 bir 3 boyutlu int dizi oluşturup tüm elemanlarını 20 değerini atayalım
+            int[,,] dizi = new int[4, 4, 6];
+            Console.WriteLine(dizi.Length); // 96
+            int a=0;
+            for (int i = 0; i < dizi.GetLength(0); i++)
+            {
+                for (int j = 0; j < dizi.GetLength(1); j++)
+                {
+                    for (int k = 0; k < dizi.GetLength(2); k++)
+                    {
+                        dizi[i, j, k] = 20;
+                        Console.WriteLine($"dizi[{i},{j},{k}] = {dizi[i, j, k]}");
+                        a++;
+                    }
+                }
+            }
+            Console.WriteLine(a); // 96
+        }
+    }
+}

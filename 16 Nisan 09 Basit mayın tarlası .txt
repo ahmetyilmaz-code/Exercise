@@ -1,0 +1,96 @@
+using System;
+using System.Collections.Generic;
+using System.IO.Ports;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp16Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Basit mayın tarlası
+            // 0 0 0 
+            // 0 0 0 
+            // 0 0 0
+            // Kullanıcı oynarken klavyedeki sayıları kullanacak
+            // Her oyunda 1 bomba olacak
+            // Amaç bombaya basmadan tüm alanları bulmak
+            // numlok sırası  7 8 9 , 4 5 6, 1 2 3
+
+            // 0 0 0
+            // + 0 0
+            // 0 0 0 // + bomba değil
+
+            // 0 X 0 // X bomba
+            // + + 0
+            // 0 0 +
+
+            // bitirmeden bombaya basarsa oyun bitti, bulmadan yaparsa kazandın yazsın
+
+            string[,] tahta =
+            {
+                {"0 ","0 ","0 ", "\n" },
+                {"0 ","0 ","0 ", "\n" },
+                {"0 ","0 ","0 ", "\n" }
+            };
+
+            Random rnd = new Random();
+            int bomba = rnd.Next(0,10);
+            int puan = 0;
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Basit Mayın Tarlası");
+                foreach (var item in tahta)
+                {
+                    Console.Write(item);
+                }
+                Console.WriteLine("Lütfen 1-9 arasında bir sayı giriniz:");
+                int secim = Console.ReadKey().KeyChar - '0';
+                if (secim < 0 || secim > 9)
+                {
+                    Console.WriteLine("Geçersiz seçim, lütfen 1-9 arasında bir sayı giriniz.");
+                    Console.ReadKey();
+                }
+                int ilkboyut = secim <= 3 ? 2 : secim <= 6 ? 1 : 0;
+                int ikinciBoyut = secim <= 3 ? secim - 1 : secim <= 6 ? secim - 4 : secim - 7;
+                if (secim == bomba)
+                {
+                    tahta[ilkboyut, ikinciBoyut] = "X ";
+                    break;
+                }
+                else
+                {
+                    puan++;
+                    tahta[ilkboyut, ikinciBoyut] = "+ ";
+                    if (puan == 8)
+                    {                        
+                        break;
+                    }
+
+                }                
+            }
+            Console.Clear();
+            Console.WriteLine("Basit Mayın Tarlası");
+            foreach (var i in tahta)
+            {
+                Console.Write(i);
+            }
+
+            if (puan < 8)
+            {
+                Console.WriteLine("Kaybettiniz...");
+            }
+            else
+            {
+                Console.WriteLine("Kazandınız...");
+            }
+
+
+        }
+    }
+}

@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp16Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string [] names = { "Ahmet", "Veli", "Enes", "Fatma" };
+            Array.Sort(names);
+            int index = Array.BinarySearch(names, "Ahmet");
+            // BinarySearch metodu sıralanmış bir dizide arama yapar
+            // ve aranan elemanın indeksini döndürür.
+            Console.WriteLine(index); //- ise aranan eleman dizide yok demektir.
+            Console.WriteLine(names[index]);
+
+        }
+    }
+}
