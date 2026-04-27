@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp22Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Ilkmetod(); //statik metot çağrımı
+
+            Program p = new Program();
+            p.IkinciMetod();
+            // statik olmayanı çağırmak için önce sınıfın bir örneğini oluşturmamız gerekir.
+            // O örnek üzerinden çağırabiliriz.
+            // statik olma durumnu sınıflarda göreceğiz
+
+            Console.ReadKey();
+        }
+       
+        //statik ve void olan ekrana merhaba dünya yazan bir metot
+        static void Ilkmetod() 
+        {
+            Console.WriteLine("Merhaba Dünya");
+        }
+        //statik OLMAYAN ve void olan ekrana merhaba dünya yazan bir metot
+        void IkinciMetod()
+        {
+            Console.WriteLine("Merhaba Dünya2");
+        }
+
+    }
+}

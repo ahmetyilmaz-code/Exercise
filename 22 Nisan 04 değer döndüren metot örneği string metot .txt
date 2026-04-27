@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp22Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string isim = kullaniciadi();            
+            string isim2 = kullaniciadi();
+            Console.WriteLine($"Merhaba {isim} ve {isim2}");
+            Console.ReadKey();
+        }
+
+        // eğere bir metot değer döndüreceksee isminin hemen başına döndürülecek olan değer yazılmalı
+        // örneğin kullanıcıadi isimli netot string bir değer döndüren metottur.
+        static string kullaniciadi()
+        {
+            Console.Write("Lütfen isminizi girin: ");
+            string isim = Console.ReadLine();              
+            return isim;
+            // return ile döndürülen değer metodun türü ile aynı olmak zorundadır.
+            // Bu örnekte metodun türü string olduğu için return
+            // ile döndürülen değer de string türünde olmalıdır.
+        }
+
+
+    }
+}

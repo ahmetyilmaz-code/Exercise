@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp22Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+           
+            EkranaYaz("deneme metot");
+            Console.ReadKey();
+        }
+        // metotlar parametre alabilirle bunun için parantezlerin arasına istenilen parametrenin
+        // türünde bir değişken tanımlanır.
+       static void EkranaYaz(string metin)
+        {
+            Console.WriteLine(metin);
+        }
+       
+    }
+}

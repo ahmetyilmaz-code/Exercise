@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp22Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // 4 metot yazalım
+            // 1. kullanıcıdan bir metin alan ve aldığı değeri döndüren metot
+            // 2. kullanıcıdan sayı alan ve değeri döndüren metot
+            // 3. kullanıcıdan sadece pozitif sayı alan ve değeri döndüren metot
+            // 4. kullanıcıdan sadece negatif sayı alan ve değeri döndüren metot
+
+            string yazı = Metin();
+            int normalsayi = Sayi();
+            int pozitifsayi = PozitifSayi();
+            int negatifsayi = NegatifSayi();
+            Console.Clear();
+            Console.WriteLine($"1.metot metin:{yazı}\n2.metot normal sayı:{normalsayi}\n3.metot pozitif sayı:{pozitifsayi}\n4.metot negatif sayı:{negatifsayi}");
+
+
+            Console.ReadKey();
+        }
+        static string Metin()
+        {
+            Console.Write("metin giriniz :");
+            string metinn = Convert.ToString(Console.ReadLine());
+            return metinn;
+        }
+        static int Sayi()
+        {
+            Console.Write("Sayı :");
+            int sayi = Convert.ToInt32(Console.ReadLine());
+            return sayi;
+        }
+        static int PozitifSayi()
+        {
+            Console.Write("Pozitif ");
+            int sayi = Sayi();
+            while (sayi <= 0)
+            {
+                Console.Write("Pozitif ");
+                sayi = Sayi();
+            }
+            return sayi;
+        }
+        static int NegatifSayi()
+        {
+            Console.Write("Negatif ");
+            int sayi = Sayi();
+            while (sayi >= 0)
+            {
+                Console.Write("Negatif ");
+                sayi = Sayi();
+            }
+            return sayi;
+        }
+    }
+}

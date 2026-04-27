@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp22Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // metotlar işleri daha küçük ve yönetilebilir yapmak 
+            // ve kodun tekrarını engellemek için kullanılır
+
+            //bir metodın çaşışabilmesi için çağırılması gerekir.
+            //metodun çağırılması demek o metodun çalışması demektir.
+            // tetiklenmeyen çağrılmayan metot çalışmaz
+            // statik olan metotlar sadece isimleri ile aşağıdaki gibi tetiklenebilirler.
+            Ilkmetod();
+            Ilkmetod();
+            Ilkmetod();
+            // bir metot istenildiği kadar çağırılabilir.
+            Console.ReadKey();
+        }
+        // metotlar statik ve statik olmayan olarak ikiye ayrılır.
+        // bir metodun statik olup olmadığı sınıf konusu ile ilgili olduğu için 
+        // biz ilk başta statik metotları kullanacağız.
+
+        // void şimdilik ezber kalsın.
+        static void Ilkmetod() //ekrana merhba dünya yazan program
+        {
+            Console.WriteLine("Merhaba Dünya");
+        }
+
+    }
+}

@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp22Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // kullanıcıdan 2 sayı alarak sayıların toplamını ekrana yazana metot
+            Topla();
+            Console.ReadKey();
+        }
+        static void Topla()
+        {
+            Console.Write("Kaç adet sayı gireceksiniz: ");
+            int adet = Convert.ToInt32(Console.ReadLine());
+
+            int[] sayilar = new int[adet];
+            int toplam = 0;
+
+            for (int i = 0; i < sayilar.Length; i++)
+            {
+                Console.Write($"Lütfen {i + 1}. sayıyı giriniz: ");
+                sayilar[i] = Convert.ToInt32(Console.ReadLine());
+                toplam += sayilar[i];
+            }                      
+            Console.WriteLine($"Sayıların toplamı: {toplam}");
+        }
+    }
+}

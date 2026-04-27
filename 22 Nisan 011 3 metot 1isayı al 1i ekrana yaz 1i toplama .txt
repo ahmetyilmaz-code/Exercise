@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp22Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // kullanıcıdan 2 sayı alarak ekrana toplamnı yazan program
+            // ekrana metinsel bir değere yazan metot EkranaYaz()
+            // EkranaYaz metodu iki parametre alır ilk parametre strinf ekrana yazılacak olan değer
+            // ikinci parametre ekrana değer yazıldıktan sonra bir alt satıra
+            // geçilecekmi değerini tutan bool değişkeni
+
+            // SayıAl() diye bir metot olacak ekrana bir değer yazdırmaz
+            // sadece sayı alır ve aldığı sayıyı döndürür.
+
+            // ToplamBuo() bu metot parametrede iki int değişken alarak aldığı değişkenlerin
+            // toplamını döndürür.
+            //bu metottta ekrana bir şey yazmaz.
+            EkranaYaz("1. Sayı: ", false);
+            int s1 = SayıAl();
+            EkranaYaz("2. Sayı: ", false);
+            int s2 = SayıAl();
+            int toplam = ToplamBul(s1, s2);
+            EkranaYaz($"Toplam :{toplam}", true);
+            Console.ReadKey();
+        }
+        static void EkranaYaz(string metin, bool altsatırvarmı)
+        {
+            
+            if (altsatırvarmı)
+            {
+                Console.WriteLine(metin);
+            }
+            else
+            {
+                Console.Write(metin);
+            }
+            
+        }
+        static int SayıAl()
+        {
+            
+            int sayi = Convert.ToInt32(Console.ReadLine());
+            return sayi;
+        }
+        static int ToplamBul(int sayi1, int sayi2)
+        {             
+            int toplam = sayi1 + sayi2;
+            return toplam;
+        }
+    }
+}

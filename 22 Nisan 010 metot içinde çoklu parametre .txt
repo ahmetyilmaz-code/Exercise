@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp22Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // metot çağrılıken parametler sırasıyla yazılarak çağrılır.
+            Metot("deneme yapıyorum", 23, true);
+            Console.ReadKey();
+        }
+        // metotlar parametre alabilirle bunun için parantezlerin arasına istenilen parametrenin
+        // türünde bir değişken tanımlanır.
+        // istenildiği sayıda parametre tanımlanabilir.
+       static void Metot(string metin , int sayı , bool doğruMu)
+        {
+            Console.WriteLine(metin);
+            if (doğruMu)
+            {
+                sayı++;
+            }
+            else
+            {
+                sayı--;
+            }
+        }
+       
+    }
+}

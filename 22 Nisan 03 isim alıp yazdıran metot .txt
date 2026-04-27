@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp22Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // kullanıcıdan ismini alarak merhaba isim yazan statik ve void metot
+            merhaba();
+            Console.ReadKey();
+        }
+        static void merhaba()
+        {
+            Console.Write("Lütfen isminizi girin: ");
+            string isim = Console.ReadLine();  
+            Console.WriteLine($"Merhaba {isim}");
+
+        }
+
+
+    }
+}
