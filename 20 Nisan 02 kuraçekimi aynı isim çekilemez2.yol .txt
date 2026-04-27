@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp20Nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // bir kura programı.
+            // Kullanıcı istediği adette isimi buraya girebilir.
+            // Bire bir aynı isim yazılamaz.
+            // Sonra bir tuşa basılarak bir isim ratgele gelir.
+            // Kullanıcı büyük harften başka tuşlayamayacığını düşünelim.
+            // Bir isim bir defa gelsin kurada.
+
+            Console.Write("Kaç kişik kura olacak?: ");
+            int NameAdet = Convert.ToInt32(Console.ReadLine());
+            string[] İsimler = new string[NameAdet];
+            for (int i = 0; i < İsimler.Length; i++)
+            {
+                Console.Write($"İsim {i + 1}: ");
+                string isim = Console.ReadLine();
+                Array.Sort(İsimler);
+                int index = Array.BinarySearch(İsimler, isim);
+                Array.Reverse(İsimler);
+                if (index < 0)
+                {
+                    İsimler[i] = isim;
+                }
+                else
+                {
+                    Console.WriteLine($"Bu {isim} ismi zaten var. Lütfen farklı bir isim giriniz.");
+                    i--;
+                }
+            }
+            Console.Clear();
+            foreach (var item in İsimler)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("Kura için bir tuşa basınız");
+            Console.ReadKey();            
+            int indexadet=İsimler.Length;
+            for (int i = 0; i < indexadet; i++)
+            {
+                Console.Clear();
+                
+                for (int j = 0; j < İsimler.Length; j++)
+                {
+                    Console.WriteLine(İsimler[j]);
+                }
+                Random rnd = new Random();
+                int index = rnd.Next(0, İsimler.Length);
+                Console.WriteLine($"Kura sonucu: {İsimler[index]}");
+
+                İsimler[index] = null;
+                Array.Sort(İsimler);
+                string[] geciciisimler = new string[İsimler.Length - 1];
+                for (int j=0; j<geciciisimler.Length; j++)
+                {
+                    geciciisimler[j] = İsimler[j+1];
+                }
+                İsimler=geciciisimler;
+                Console.WriteLine("Yeni Kura Çekmek için bir tuşa basınız.");
+                Console.ReadKey();
+            }
+            Console.WriteLine("Tüm isimler kurada çekildi.");
+            Console.ReadKey();
+
+        }
+    }
+}
