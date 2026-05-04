@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp29nisan02
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //SayıAl("1. Sayı: ",int) bu metot iki parametr alır birisi string birisi ref veya out
+            // int string olanı etiket  olarak ekrana basar
+            // int olan ise kullanıcıdan alınan değer olur.
+            int sayi;
+            string metin = "1.Sayı: ";
+            SayıAl(metin, out sayi);
+            Console.Write($"{metin}{sayi}");
+            //Console.WriteLine($"{SayıAl(metin)}");
+        }
+       
+        static void SayıAl(string metin ,out int sayi)
+        {
+            Console.Write(metin);
+            sayi = Convert.ToInt32(Console.ReadLine());
+
+        }
+        
+    }
+}

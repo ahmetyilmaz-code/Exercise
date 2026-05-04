@@ -1,0 +1,56 @@
+using Microsoft.Win32;
+using System;
+
+namespace ConsoleApp29nisan03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // kullanıcıdan istediği adette sayı alarak bu sayılar arasında
+            // en büyük ve en küçük olan sayıyı bulacak
+            // işlem sonunda kullanıcının girdiği sayıları büyükten küçüğe sıralayarak
+            // en büyük ve en küçük sayıyı listenin altında yazacak
+            //5 
+            //4
+            //3
+            //2
+            //1
+            //En Büyük: 5
+            //En Küçük: 1
+            //EnBuyukEnKucukBul(int[], ref buyuk,ref kucuk)
+            //
+
+            Console.Write("Kaç Sayı olsun: ");
+            int adet = Convert.ToInt32(Console.ReadLine());
+            int[] sayılar = new int[adet];
+            SayıAl(sayılar);
+            int buyuk, kucuk;
+            Console.Clear();
+            EnBuyukEnKucukBul(sayılar, out buyuk, out kucuk);
+            foreach (var item in sayılar)
+            {
+                Console.WriteLine($"=> {item}");
+            }
+            Console.Write($"En Büyük: {buyuk}\nEn Küçük: {kucuk}");
+        }
+        static void SayıAl(int[]sayılar)
+        {            
+            for (int i = 0; i < sayılar.Length; i++)
+            {
+                Console.Write($"{i + 1}.Sayı: ");
+                sayılar[i] = Convert.ToInt32(Console.ReadLine());
+            }    
+        }
+        static void EnBuyukEnKucukBul(int[] sayılar, out int buyuk, out int kucuk)
+        {
+            Array.Sort(sayılar);
+            kucuk = sayılar[0];
+            Array.Reverse(sayılar);
+            buyuk = sayılar[0];
+        }
+
+
+
+    }
+}

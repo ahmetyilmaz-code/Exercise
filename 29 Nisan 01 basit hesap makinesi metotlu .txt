@@ -1,0 +1,148 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp29nisan01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Basit Hesap Makinesi
+            //Her işlem ayrı bir metot olsun Topla() Cikar() Bol() Carp()
+            //Ustu() Mod() SayiAl() Islem()
+            //HesapMakinesi() tüm işlemler bu metottan yönetilecek.
+            //Main metodunda sadece HesapMakinesi() metodu olacak   
+
+            HesapMakinesi();
+            Console.ReadKey();
+        }
+        static void HesapMakinesi()
+        {
+            Islem();         
+        }
+        static void Islem()
+        {
+            double s1 = SayıAl();
+            Console.WriteLine($"1. sayı: {s1}");
+            Console.WriteLine("diğer sayıyı almak için tuşa basınız...");
+            Console.ReadKey();
+            double s2 = SayıAl();
+            Console.WriteLine($"2. sayı: {s2}");
+            Console.WriteLine("işlemi seçmek için bir tuşa basınız...");
+            Console.ReadKey();
+            double sonuc = 0;
+            bool tekrar = true;
+            char Islem = 'a';
+            while (tekrar)
+            {
+                Console.Write("hangi işlem olsun + - * / ^ % \n");
+                Islem = Console.ReadKey().KeyChar;
+                if (Islem == '+')
+                {
+                    sonuc = Topla(s1, s2);
+                    tekrar = false;
+                }
+                else if (Islem == '-')
+                {
+                    sonuc = Cikar(s1, s2);
+                    tekrar = false;
+                }
+                else if (Islem == '*')
+                {
+                    sonuc = Carp(s1, s2);
+                    tekrar = false;
+                }
+                else if (Islem == '/')
+                {
+                    sonuc = Bol(s1, s2);
+                    tekrar = false;
+                }
+                else if (Islem == '^')
+                {
+                    sonuc = Ustu(s1, s2);
+                    tekrar = false;
+                }
+                else if (Islem == '%')
+                {
+                    sonuc = Mod(s1, s2);
+                    tekrar = false;
+                }
+                else
+                {
+                    Console.WriteLine("Geçerli işlem giriniz");
+                    tekrar = true;                    
+
+                }
+            }
+            Console.WriteLine($"\n{s1}{Islem}{s2}={sonuc}");
+        }
+        static double Topla(double s1, double s2)
+        {
+            return s1 + s2;
+        }
+
+        static double Mod(double s1, double s2)
+        {
+            return s1 % s2;
+        }
+        static double Ustu(double s1, double s2)
+        {
+            double a = 1;
+            for (double i = 0; i == s2; i++)
+            {
+                a *= s1;
+            }
+            return a;
+        }
+        static double Cikar(double s1, double s2)
+        {
+            return s1 - s2;
+        }
+        static double Bol(double s1, double s2)
+        {
+            return s1 / s2;
+        }
+        static double Carp(double s1, double s2)
+        {
+            return s1 * s2;
+        }
+
+        static double SayıAl()
+        {
+            string sonuc = "";
+            while (true)
+            {
+                Console.Clear();
+                Console.Write($"Sayı: {sonuc}");
+                var Tus = Console.ReadKey();
+                if (Tus.Key == ConsoleKey.Enter)
+                {
+                    break;
+                }
+                else if (Tus.KeyChar < '0' || Tus.KeyChar > '9')
+                {
+
+                    Console.WriteLine("\nSadece sayılsal değer giriniz...\n");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    sonuc += Tus.KeyChar;
+                }
+            }
+            if (sonuc == "")
+            {
+                return 0;
+            }
+            else
+            {
+                double sayı = Convert.ToDouble(sonuc);
+                return sayı;
+            }
+        }
+    }
+}
